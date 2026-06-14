@@ -75,7 +75,7 @@ Core Tables:
 
 ## Entity Relationship Diagram (ERD)
 
-https://docs.google.com/document/d/18rczbQheCK7rOXeqAOYAZJ0g2cdwwROmLwwKiR3rSP0/edit?usp=sharing
+[https://docs.google.com/document/d/18rczbQheCK7rOXeqAOYAZJ0g2cdwwROmLwwKiR3rSP0/edit?usp=sharing](https://docs.google.com/document/d/18rczbQheCK7rOXeqAOYAZJ0g2cdwwROmLwwKiR3rSP0/edit?usp=sharing)
 
 Key Relationships:
 
@@ -87,7 +87,8 @@ Key Relationships:
 ## Laravel Components Implementation
 
 - Routes (Web.php)
-  
+
+```php
 <?php
 
 use Illuminate\Support\Facades\Route;
@@ -136,16 +137,17 @@ Route::delete('/merchandise/{merchandise}', [MerchandiseController::class, 'dest
 
 });
 
-- Controllers
-  
-  *Main Controllers Implemented are below :*
+Controllers
 
-  1. MusicController: Manages CRUD for music section.
-  2. MerchandiseController: Manages CRUD for merchandise section.
+Main Controllers Implemented are below :
 
-- Models and Relationships
-  
-php// Music Model
+MusicController: Manages CRUD for music section.
+
+MerchandiseController: Manages CRUD for merchandise section.
+
+Models and Relationships
+
+// Music Model
 class music extends Model
 {
     protected $table = 'music';
@@ -158,7 +160,8 @@ class music extends Model
         'image_file',
     ];
 }
-php// Merchandise Model
+
+// Merchandise Model
 class merchandise extends Model
 {
     protected $fillable = [
@@ -176,7 +179,7 @@ class merchandise extends Model
     }
 }
 
-php// User Model 
+// User Model 
 class User extends Authenticatable 
 {
     use HasApiTokens, HasFactory, HasProfilePhoto, Notifiable, TwoFactorAuthenticatable;
@@ -202,12 +205,12 @@ class User extends Authenticatable
     }
 }
 
-- Views and User Interface
+Views and User Interface
 
-  *Blade Templates Structure:*
+Blade Templates Structure:
 layouts/app.blade - Provides the structural layout for the creation and editing of pages.
 layouts/home_layout - Stores the design layout for the Home, About and Contact pages.
-layouts/index_layout.blade - Manages the main index layout for browsing music and merchandise. 
+layouts/index_layout.blade - Manages the main index layout for browsing music and merchandise.
 music/create.blade - Interface for adding a new music/sounds/soundfx/assets list.
 music/edit.blade - Interface for editing music/sounds/soundfx/assests listings.
 music/index.blade - The primary dashboard for viewing the music catalog.
@@ -218,160 +221,179 @@ Home.blade - The main dashboard presented after a successful login.
 About.blade - About us and our website.
 Contact.blade - Informational page detailing the website’s customer service contact options.
 
-   *Design Features:*
+Design Features:
 Responsive Design: Built using Bootstrap components from Kelly and Sarab to ensure cross-device compatibility.
 Color Scheme: Utilises a clean pallet of Cream, Blue and White to maintain a professional and creative aesthetic design.
 Background Image: Includes scenes from music festivals to give the vibe of music, sound and arts.
 Navigation: Features an intuitive navigation bar and an integrated search bar specifically on the music and merchandise pages for every asset discovery.
 
-## User Authentication System
+User Authentication System
+ Authentication Features
+Registration System: Email, password confirmation, role selection.
 
-### ** Authentication Features**
-- **Registration System**: Email, password confirmation, role selection.
-- **Login System**: Login with a registered account.
-- **Role-Based Access**: Different features for users and artists.
+Login System: Login with a registered account.
 
-### **Security Measures**
-- Password encryption using Laravel's built-in hashing
-- CSRF protection on all forms
-- Input validation and sanitization
-- Middleware protection for authenticated routes
+Role-Based Access: Different features for users and artists.
 
+Security Measures
+Password encryption using Laravel's built-in hashing
 
-## Installation and Setup Instructions
-### Prerequisites :
-- **PHP** = 8.2 or latest 
-- **Composer** 
-- **Node.js** & **NPM**
-- **MySQL** 8.0 and **XAMPP** 
+CSRF protection on all forms
 
-### Step-by-Step Installation
+Input validation and sanitization
+
+Middleware protection for authenticated routes
+
+Installation and Setup Instructions
+Prerequisites :
+PHP = 8.2 or latest
+
+Composer - Node.js & NPM
+
+MySQL 8.0 and XAMPP ### Step-by-Step Installation
 
 1. Clone the Repository
-Open your terminal and run the following commands to clone the project: 
+Open your terminal and run the following commands to clone the project:
 
-```bash git clone [https://github.com/…..](https://github.com/…..) cd GroupLarva_Royalty-FreeWorld 
+git clone https://github.com/.....
+cd GroupLarva_Royalty-FreeWorld
 
 2. Install Dependencies
-Install both backend (PHP) and frontend (JavaScript) dependencies: 
+Install both backend (PHP) and frontend (JavaScript) dependencies:
 
 composer install 
-npm install 
+npm install
 
 3. Environment Configuration
-Create your local environment file and generate the application secure key: 
+Create your local environment file and generate the application secure key:
 
 cp .env.example .env
 php artisan key:generate
 
 4. Database Setup
--Create a new database named it in your phpMyAdmin / MySQL Server.
--Update the .env file with your database credentials
--Run the migrations and seeders to set up the tables:
+
+Create a new database named it in your phpMyAdmin / MySQL Server.
+
+Update the .env file with your database credentials
+
+Run the migrations and seeders to set up the tables:
 
 php artisan migrate 
-php artisan db:seed 
+php artisan db:seed
 
 5. Start Development Server
-Run these commands to launch the application: 
-
+Run these commands to launch the application:
 php artisan serve
 npm run dev
 
-## Testing and Quality Assurance
-
-###  Functionality Testing
-
+Testing and Quality Assurance
+Functionality Testing
 Authentication & Roles: Verified artist and standard user registration, login security, and dashboard access separation.
 Media Catalog: Tested uploading, rendering, and filtering of the music track listings based on genres.
-CRUD Module: Validated the CRUD operations (Add, View, Edit, Delete) for artist merchandise and music lists. 
-Media Storage Integrity: Checked successful file path mapping for uploaded music and merchandise images. 
+CRUD Module: Validated the CRUD operations (Add, View, Edit, Delete) for artist merchandise and music lists.
+Media Storage Integrity: Checked successful file path mapping for uploaded music and merchandise images.
 UI/UX Responsiveness: Conducted layout testing across Desktop.
 
-### Browser Compatibility
-
+Browser Compatibility
 Google Chrome (Latest)
 Microsoft Edge (Latest)
 
-### Performance Testing
+Performance Testing
+Load Speed: Optimized assets for sub-2.5s page loading.
+Database Efficiency: Optimized queries for faster data retrieval.
+Asset Optimization: Implemented compression for images and media files.
+Compatibility: Verified performance across Chrome and Edge.
 
-Load Speed: Optimized assets for sub-2.5s page loading. 
-Database Efficiency: Optimized queries for faster data retrieval. 
-Asset Optimization: Implemented compression for images and media files. 
-Compatibility: Verified performance across Chrome and Edge. 
+Challenges Faced and Solutions
+Challenge 1: Website Design Consistency
+Problem: Managing website background image and visual theme across all web pages.
 
+Solution: Used Laravel Blade templates and a shared CSS file to centralize the background image and styling, ensuring a consistent design across all pages.
 
-## Challenges Faced and Solutions
-### Challenge 1: Website Design Consistency 
-- Problem: Managing website background image and visual theme across all web pages. 
-- Solution: Used Laravel Blade templates and a shared CSS file to centralize the background .image and styling, ensuring a consistent design across all pages. 
-### Challenge 2: Database Synchronization 
-- Problem: Changes made in one module were not always reflected correctly.
-- Solution: Laravel Eloquent models and database relationships were implemented.
-### Challenge 3: Role-based Authentication
-- Problem: Different user types requiring different access levels.
-- Solution: Implemented middleware to check user roles and redirect appropriately.
+Challenge 2: Database Synchronization
+Problem: Changes made in one module were not always reflected correctly.
 
-## Future Enhancements
-### Phase 2 Features (Potential Improvements)
-- **Real-time Notifications**: Push notifications for order updates
-- **Payment Integration**: Stripe or PayPal payment processing
-- **GPS Tracking** : Real-time delivery tracking with maps
-- **Rating System** : Customer reviews and restaurant ratings
-- **Advanced Analytics** : Detailed sales reports and customer insights
-- **Mobile App** : Native mobile application for iOS and Android
+Solution: Laravel Eloquent models and database relationships were implemented.
 
-### Scalability Considerations
+Challenge 3: Role-based Authentication
+Problem: Different user types requiring different access levels.
 
-- Database optimization for larger datasets
-- Caching implementation for improved performance
-- API development for mobile app integration
-- Load balancing for high traffic scenarios
+Solution: Implemented middleware to check user roles and redirect appropriately.
 
+Future Enhancements
+Phase 2 Features (Potential Improvements)
+Real-time Notifications: Push notifications for order updates
 
-## Learning Outcomes
-### Technical Skills Gained
+Payment Integration: Stripe or PayPal payment processing
 
-- Laravel Framework: Understanding of MVC architecture and Eloquent ORM
-- Database Design: Creating efficient database schemas and relationships
-- Authentication: Implementing secure user authentication systems
-- Frontend Development: Building responsive interfaces with Bootstrap
-- Version Control: Using Git and GitHub for project management
+GPS Tracking : Real-time delivery tracking with maps
 
-### Soft Skills Developed
+Rating System : Customer reviews and restaurant ratings
 
-- **Team Collaboration** : Working effectively in a group environment
-- **Project Management** : Planning and executing a complex web application
-- **Problem Solving** : Debugging and resolving technical challenges
-- **Documentation** : Creating comprehensive project documentation
+Advanced Analytics : Detailed sales reports and customer insights
 
+Mobile App : Native mobile application for iOS and Android
 
-## References
+Scalability Considerations
+Database optimization for larger datasets
 
-1. Laravel Documentation. (2024). Laravel 10.x Documentation. Retrieved from https://laravel.com/docs/10.x
-2. Bootstrap Documentation. (2024). Bootstrap 5.3 Documentation. Retrieved from https://getbootstrap.com/docs/5.3/
-3. MySQL Documentation. (2024). MySQL 8.0 Reference Manual. Retrieved from https://dev.mysql.com/doc/refman/8.0/en/
-4. MDN Web Docs. (2024). Web Development Resources. Retrieved from https://developer.mozilla.org/
-5. Stack Overflow. (2024). Programming Q&A Platform. Retrieved from https://stackoverflow.com/
+Caching implementation for improved performance
 
+API development for mobile app integration
 
-## Conclusion
+Load balancing for high traffic scenarios
+
+Learning Outcomes
+Technical Skills Gained
+Laravel Framework: Understanding of MVC architecture and Eloquent ORM
+
+Database Design: Creating efficient database schemas and relationships
+
+Authentication: Implementing secure user authentication systems
+
+Frontend Development: Building responsive interfaces with Bootstrap
+
+Version Control: Using Git and GitHub for project management
+
+Soft Skills Developed
+Team Collaboration : Working effectively in a group environment
+
+Project Management : Planning and executing a complex web application
+
+Problem Solving : Debugging and resolving technical challenges
+
+Documentation : Creating comprehensive project documentation
+
+References
+Laravel Documentation. (2024). Laravel 10.x Documentation. Retrieved from https://laravel.com/docs/10.x
+
+Bootstrap Documentation. (2024). Bootstrap 5.3 Documentation. Retrieved from https://getbootstrap.com/docs/5.3/
+
+MySQL Documentation. (2024). MySQL 8.0 Reference Manual. Retrieved from https://dev.mysql.com/doc/refman/8.0/en/
+
+MDN Web Docs. (2024). Web Development Resources. Retrieved from https://developer.mozilla.org/
+
+Stack Overflow. (2024). Programming Q&A Platform. Retrieved from https://stackoverflow.com/
+
+Conclusion
 Royalty-Free World successfully demonstrates the implementation of a comprehensive royalty-free media downloading system using Laravel framework. The project showcases proficiency in web development fundamentals including MVC architecture, database design, user authentication, and responsive web design.
 
-### Key Achievements
+Key Achievements
+Successfully implemented core Laravel components (Routes, Controllers, Models, and Views) to support music, sound, and merchandise management.
 
-- Successfully implemented core Laravel components (Routes, Controllers, Models, and Views) to support music, sound, and merchandise management. 
-- Built a functional platform allowing artists to upload and manage content while enabling users to browse and download royalty-free assets.
-- Integrated an e-commerce module that allows artists to sell merchandise alongside their creative work.
-- Implemented role-based authentication to separate user and artist functionalities.
-- Designed a clean, responsive interface using Bootstrap with a consistent visual theme across all pages.
+Built a functional platform allowing artists to upload and manage content while enabling users to browse and download royalty-free assets.
 
-### Project Impact
+Integrated an e-commerce module that allows artists to sell merchandise alongside their creative work.
+
+Implemented role-based authentication to separate user and artist functionalities.
+
+Designed a clean, responsive interface using Bootstrap with a consistent visual theme across all pages.
+
+Project Impact
 This project provided the team with hands-on experience in building a real-world web application from the ground up. Working through the design, development, and testing process gave the team practical exposure to challenges that arise in professional web development, from database structuring to UI consistency and access control; skills that are directly transferable to future projects.
 
-- Project Completion Date: 12/6/2026
-- Course: Web Application Development
-- Lecturer: Dr. Nor Azura Binti Kamarulzaman
+Project Completion Date: 12/6/2026
 
+Course: Web Application Development
 
-
+Lecturer: Dr. Nor Azura Binti Kamarulzaman
