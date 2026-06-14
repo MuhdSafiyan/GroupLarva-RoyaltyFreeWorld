@@ -75,7 +75,7 @@ Core Tables:
 
 ## Entity Relationship Diagram (ERD)
 
-https://docs.google.com/document/d/1gQeg-at7jM69PBJz9OZSUhfYTOzc6jTW5IDaH_PtuKg/edit?usp=sharing
+https://docs.google.com/document/d/18rczbQheCK7rOXeqAOYAZJ0g2cdwwROmLwwKiR3rSP0/edit?usp=sharing
 
 Key Relationships:
 
